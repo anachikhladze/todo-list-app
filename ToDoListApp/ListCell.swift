@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ListCell: View {
+    
+    // MARK: - Properties
     @Binding var task: Task
     
+    // MARK: - Body
     var body: some View {
         HStack(spacing: 16) {
             VStack(alignment: .leading) {

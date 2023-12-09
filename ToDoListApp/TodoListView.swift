@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TodoListView: View {
+    
+    // MARK: - Properties
     @State private var taskList = TaskList.taskList
     
     private var todoListCount: Int {
@@ -22,12 +24,7 @@ struct TodoListView: View {
         Float(doneTasksCount) / Float(taskList.count)
     }
     
-    private func completeAll() {
-        for index in taskList.indices {
-            taskList[index].isDone = true
-        }
-    }
-    
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color.black
@@ -35,10 +32,7 @@ struct TodoListView: View {
             VStack(spacing: 10) {
                 HStack(spacing: 100) {
                     Text("You have \(todoListCount) tasks \nto complete")
-                        .font(
-                            Font.custom("Roboto", size: 25)
-                                .weight(.bold)
-                        )
+                        .font(Font.system(size: 25).weight(Font.Weight.bold))
                         .foregroundColor(.white)
                     
                     ZStack(alignment: .bottomTrailing) {
@@ -52,7 +46,6 @@ struct TodoListView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 16, height: 16)
-                        
                         
                         Text("\(todoListCount)")
                             .font(Font.custom("Inter", size: 14))
@@ -76,7 +69,7 @@ struct TodoListView: View {
                 HStack {
                     Text("Progress")
                         .font(
-                            Font.custom("Roboto", size: 22)
+                            Font.custom("Inter", size: 22)
                                 .weight(.bold)
                         )
                         .foregroundColor(.white)
@@ -84,8 +77,6 @@ struct TodoListView: View {
                     
                     Spacer()
                 }
-                
-                
                 
                 ZStack(alignment: .leading) {
                     Rectangle()
@@ -130,6 +121,7 @@ struct TodoListView: View {
                     
                     Spacer()
                 }
+                
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 8) {
                         ForEach($taskList) { $task in
@@ -140,9 +132,16 @@ struct TodoListView: View {
             }
         }
     }
+    
+    // MARK: - View Methods
+    private func completeAll() {
+        for index in taskList.indices {
+            taskList[index].isDone = true
+        }
+    }
 }
 
-
+// MARK: - Preview
 #Preview {
     TodoListView()
 }
