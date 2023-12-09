@@ -18,6 +18,10 @@ struct TodoListView: View {
         taskList.count - todoListCount
     }
     
+    private var progressValue: Float {
+        Float(doneTasksCount) / Float(taskList.count)
+    }
+    
     private func completeAll() {
         for index in taskList.indices {
             taskList[index].isDone = true
@@ -97,12 +101,12 @@ struct TodoListView: View {
                                 .font(Font.custom("Inter", size: 16))
                                 .foregroundColor(.gray)
                             
-                            Text("50%")
+                            Text("\(Int(progressValue * 100))%")
                                 .font(Font.custom("Inter", size: 18))
                                 .foregroundColor(.white)
                         }
                         
-                        ProgressView(value: 0.5)
+                        ProgressView(value: progressValue)
                             .progressViewStyle(LinearProgressViewStyle(tint: .purple))
                             .frame(width: 320)
                     }
