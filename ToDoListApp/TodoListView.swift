@@ -73,12 +73,18 @@ struct TodoListView: View {
                         .cornerRadius(8)
                 }
                 
-                Text("Progress")
-                    .font(
-                        Font.custom("Roboto", size: 22)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(.white)
+                HStack {
+                    Text("Progress")
+                        .font(
+                            Font.custom("Roboto", size: 22)
+                                .weight(.bold)
+                        )
+                        .foregroundColor(.white)
+                        .padding(.leading, 20)
+                    
+                    Spacer()
+                }
+                
                 
                 
                 ZStack(alignment: .leading) {
@@ -97,7 +103,7 @@ struct TodoListView: View {
                             .foregroundColor(.white)
                         
                         HStack(spacing: 180) {
-                            Text("Keep Working")
+                            Text(todoListCount == 0 ? "Well Done!" : "Keep Working")
                                 .font(Font.custom("Inter", size: 16))
                                 .foregroundColor(.gray)
                             
@@ -113,11 +119,17 @@ struct TodoListView: View {
                     .padding()
                 }
                 
-                Text("Completed Tasks")
-                    .font(Font.custom("Inter", size: 22))
-                    .foregroundColor(.white)
-                    .padding()
-                
+                HStack {
+                    Text("Completed Tasks")
+                        .font(
+                            Font.custom("Inter", size: 22)
+                                .weight(.bold)
+                        )
+                        .foregroundColor(.white)
+                        .padding(.leading, 20)
+                    
+                    Spacer()
+                }
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 8) {
                         ForEach($taskList) { $task in
