@@ -11,7 +11,6 @@
 		A1E202652B2358C500F0EA09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E202642B2358C500F0EA09 /* ContentView.swift */; };
 		A1E202672B2358C600F0EA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E202662B2358C600F0EA09 /* Assets.xcassets */; };
 		A1E2026A2B2358C600F0EA09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E202692B2358C600F0EA09 /* Preview Assets.xcassets */; };
-		A1E2028D2B23852A00F0EA09 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2028C2B23852A00F0EA09 /* ButtonView.swift */; };
 		A1E2028F2B23869900F0EA09 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2028E2B23869900F0EA09 /* ToDoListView.swift */; };
 		A1E202912B23B91700F0EA09 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E202902B23B91700F0EA09 /* Model.swift */; };
 /* End PBXBuildFile section */
@@ -22,7 +21,6 @@
 		A1E202642B2358C500F0EA09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1E202662B2358C600F0EA09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E202692B2358C600F0EA09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A1E2028C2B23852A00F0EA09 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A1E2028E2B23869900F0EA09 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		A1E202902B23B91700F0EA09 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +57,6 @@
 			children = (
 				A1E202622B2358C500F0EA09 /* ToDoListAppApp.swift */,
 				A1E202642B2358C500F0EA09 /* ContentView.swift */,
-				A1E2028C2B23852A00F0EA09 /* ButtonView.swift */,
 				A1E2028E2B23869900F0EA09 /* ToDoListView.swift */,
 				A1E202902B23B91700F0EA09 /* Model.swift */,
 				A1E202662B2358C600F0EA09 /* Assets.xcassets */,
@@ -150,7 +147,6 @@
 				A1E202652B2358C500F0EA09 /* ContentView.swift in Sources */,
 				A1E202632B2358C500F0EA09 /* ToDoListAppApp.swift in Sources */,
 				A1E2028F2B23869900F0EA09 /* ToDoListView.swift in Sources */,
-				A1E2028D2B23852A00F0EA09 /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

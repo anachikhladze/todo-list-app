@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var taskList = TaskList.taskList
+    
+    private var todoListCount: Int {
+        taskList.filter { !$0.isDone }.count
+    }
+    
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
                 HStack(spacing: 100) {
-                    Text("You have 3 tasks \nto complete")
+                    Text("You have \(todoListCount) tasks \nto complete")
                         .font(
                             Font.custom("Roboto", size: 25)
                                 .weight(.bold)
@@ -34,7 +40,7 @@ struct ContentView: View {
                             .frame(width: 16, height: 16)
                         
                         
-                        Text("3")
+                        Text("\(todoListCount)")
                             .font(Font.custom("Inter", size: 14))
                             .foregroundColor(.white)
                             .padding(.trailing, 4)
@@ -98,16 +104,19 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                
-                ToDoListView()
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 8) {
+                        ForEach($taskList) { $task in
+                            CustomListCell(task: $task)
+                        }
+                    }
+                }
             }
         }
     }
 }
 
+
 #Preview {
     ContentView()
 }
-
-
-

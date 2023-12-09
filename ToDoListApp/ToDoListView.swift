@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CustomListCell: View {
-    var title: String
-    var subtitle: String
+    @Binding var task: Task
     
     var body: some View {
         HStack(spacing: 130) {
@@ -30,7 +29,15 @@ struct CustomListCell: View {
                         .foregroundColor(.white)
                 }
             }
-            ButtonView()
+            
+            Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .scaledToFit()
+                .foregroundColor(task.isDone ? .purple : .purple)
+                .onTapGesture {
+                    task.isDone.toggle()
+                }
         }
         .padding()
         .background(Color(red: 0.09, green: 0.09, blue: 0.09))
@@ -41,21 +48,4 @@ struct CustomListCell: View {
 }
 
 
-struct ToDoListView: View {
-    let data = TaskList.taskList
-    var body: some View {
-        List {
-            ForEach(data) { item in
-                CustomListCell(title: item.name, subtitle: item.date)
-            }
-        }
-        .listStyle(.inset)
-        .background(Color.black)
-        .colorScheme(.dark)
-    }
-}
 
-
-#Preview {
-    ToDoListView()
-}
