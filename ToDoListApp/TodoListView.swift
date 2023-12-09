@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TodoListView.swift
 //  ToDoListApp
 //
 //  Created by Anna Sumire on 08.12.23.
@@ -7,11 +7,21 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TodoListView: View {
     @State private var taskList = TaskList.taskList
     
     private var todoListCount: Int {
         taskList.filter { !$0.isDone }.count
+    }
+    
+    private var doneTasksCount: Int {
+        taskList.count - todoListCount
+    }
+    
+    private func completeAll() {
+        for index in taskList.indices {
+            taskList[index].isDone = true
+        }
     }
     
     var body: some View {
@@ -48,7 +58,7 @@ struct ContentView: View {
                 }
                 
                 Button {
-                    print("Button tapped")
+                    completeAll()
                 } label: {
                     Text("Complete All")
                         .frame(width: 350, height: 50)
@@ -78,7 +88,7 @@ struct ContentView: View {
                             .font(Font.custom("Inter", size: 20))
                             .foregroundColor(.white)
                         
-                        Text("3/6 Tasks Completed")
+                        Text("\(doneTasksCount)/6 Tasks Completed")
                             .font(Font.custom("Inter", size: 20))
                             .foregroundColor(.white)
                         
@@ -107,7 +117,7 @@ struct ContentView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 8) {
                         ForEach($taskList) { $task in
-                            CustomListCell(task: $task)
+                            ListCell(task: $task)
                         }
                     }
                 }
@@ -118,5 +128,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    TodoListView()
 }

@@ -1,19 +1,19 @@
 //
-//  ToDoListView.swift
+//  ListCell.swift
 //  ToDoListApp
 //
-//  Created by Anna Sumire on 08.12.23.
+//  Created by Anna Sumire on 09.12.23.
 //
 
 import SwiftUI
 
-struct CustomListCell: View {
+struct ListCell: View {
     @Binding var task: Task
     
     var body: some View {
         HStack(spacing: 130) {
             VStack(alignment: .leading) {
-                Text("Mobile App Research")
+                Text(task.name)
                     .font(Font.custom("Inter", size: 16))
                     .foregroundColor(.white)
                 
@@ -24,7 +24,7 @@ struct CustomListCell: View {
                         .frame(width: 14, height: 14, alignment: .center)
                         .foregroundColor(.white)
                     
-                    Text("4 Oct")
+                    Text(task.date)
                         .font(Font.custom("Inter", size: 16))
                         .foregroundColor(.white)
                 }
@@ -46,6 +46,3 @@ struct CustomListCell: View {
         .frame(width: 360, height: 80)
     }
 }
-
-
-
