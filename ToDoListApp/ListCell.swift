@@ -11,7 +11,7 @@ struct ListCell: View {
     @Binding var task: Task
     
     var body: some View {
-        HStack(spacing: 130) {
+        HStack(spacing: 16) {
             VStack(alignment: .leading) {
                 Text(task.name)
                     .font(Font.custom("Inter", size: 16))
@@ -29,6 +29,8 @@ struct ListCell: View {
                         .foregroundColor(.white)
                 }
             }
+            
+            Spacer()
             
             Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
                 .resizable()
